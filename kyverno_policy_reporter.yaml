@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: policy-reporter
+spec:
+  destination:
+    namespace: policy-reporter
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: policy-reporter
+    repoURL: https://kyverno.github.io/policy-reporter
+    targetRevision: 3.11.2
+    helm:
+      values: |
+        kyvernoPlugin:
+          enable: true
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=true
