@@ -35,5 +35,5 @@ spec:
     - name: allContainers
       expression: variables.podSpec.containers + variables.podSpec.?initContainers.orValue([]) + variables.podSpec.?ephemeralContainers.orValue([])
   validations:
-    - expression: variables.allContainers.all(container, container.image in exceptions.allowedImages || container.?securityContext.?privileged.orValue(false) == false)
+    - expression: variables.allContainers.all(container, container.?securityContext.?privileged.orValue(false) == false)
       message: Privileged mode is disallowed. All containers must set the securityContext.privileged field to 'false' or unset the field.
