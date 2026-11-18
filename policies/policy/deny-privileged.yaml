@@ -31,7 +31,7 @@ spec:
         operations: [UPDATE]
   variables:
     - name: podSpec
-      expression: object.spec.?jobTemplate.?spec.?template.?spec.orValue(object.spec.?template.?spec.orValue(object.spec)
+      expression: object.spec.?jobTemplate.?spec.?template.?spec.orValue(object.spec.?template.?spec.orValue(object.spec))
     - name: allContainers
       expression: variables.podSpec.containers + variables.podSpec.?initContainers.orValue([]) + variables.podSpec.?ephemeralContainers.orValue([])
   validations:
