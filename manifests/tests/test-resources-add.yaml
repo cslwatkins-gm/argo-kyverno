@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-privileged
+spec:
+  containers:
+    - name: busybox
+      image: busybox
+      command: ["sleep", "3600"]
+  ignoreDifferences:
+    - group: ""
+      kind: Pod
+      jsonPointers:
+        - /metadata/labels/policies.kyverno.io~1managed
+        - /metadata/annotations/policies.kyverno.io~1last-applied
+      jqPathExpressions:
+        - .spec.template.metadata.labels | to_entries[] | select(.key | startswith("policies.kyverno.io"))
