@@ -12,5 +12,5 @@ spec:
         resources: [pods]
         operations: [CREATE, UPDATE]
   validations:
-    - message: "The label 'app' is required on all pods."
+    - message: "The label 'environment' is required on all pods."
       expression: "'environment' in object.metadata.?labels.orValue([])"
