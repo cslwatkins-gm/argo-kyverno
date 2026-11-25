@@ -14,8 +14,13 @@ spec:
     targetRevision: 3.11.2
     helm:
       values: |
-        kyvernoPlugin:
-          enable: true
+        plugin:
+          kyverno:
+            enabled: true
+          vap:
+            enabled: true
+        ui:
+          enabled: true
   syncPolicy:
     automated:
       prune: true
