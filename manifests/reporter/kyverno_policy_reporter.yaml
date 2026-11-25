@@ -17,8 +17,6 @@ spec:
         plugin:
           kyverno:
             enabled: true
-          vap:
-            enabled: true
         ui:
           enabled: true
         rest:
