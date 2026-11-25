@@ -21,6 +21,8 @@ spec:
             enabled: true
         ui:
           enabled: true
+        rest:
+          enabled: true
   syncPolicy:
     automated:
       prune: true
