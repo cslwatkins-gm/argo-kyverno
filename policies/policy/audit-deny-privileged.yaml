@@ -1,7 +1,7 @@
 apiVersion: policies.kyverno.io/v1
 kind: ValidatingPolicy
 metadata:
-  name: disalow-privileged-containers
+  name: audit-disalow-privileged-containers
   annotations:
     policies.kyverno.io/title: Disallow Privileged Containers in ValidatingPolicy
     policies.kyverno.io/category: Pod Security Standards (Baseline) in ValidatingPolicy
